@@ -1,14 +1,16 @@
-import {render, Module} from "./viz-lite.render.js";
+const { render, Module } = require('viz.js');
 
-const defaults = {files: [], format: "svg", engine: "dot"};
+const defaults = { files: [], format: 'svg', engine: 'dot' };
 
 function Dot(options) {
   options = Object.assign({}, defaults, options);
   let module = Module(Object.assign({}, options));
   return function dot(strings) {
-    let string = strings[0] + "", i = 0, n = arguments.length;
-    while (++i < n) string += arguments[i] + "" + strings[i];
-    const template = document.createElement("template");
+    let string = strings[0] + '',
+      i = 0,
+      n = arguments.length;
+    while (++i < n) string += arguments[i] + '' + strings[i];
+    const template = document.createElement('template');
     try {
       template.innerHTML = render(module, string, options);
     } catch (error) {
@@ -16,12 +18,12 @@ function Dot(options) {
       throw error;
     }
     const svg = document.importNode(template.content.firstElementChild, true);
-    svg.style.maxWidth = "100%";
-    svg.style.height = "auto";
+    svg.style.maxWidth = '100%';
+    svg.style.height = 'auto';
     return svg;
   };
 }
 
 const dot = Dot({});
 dot.options = Dot;
-export default dot;
+module.exports = dot;

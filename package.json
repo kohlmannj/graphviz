@@ -1,23 +1,31 @@
 {
-  "name": "@observablehq/graphviz",
+  "name": "@kohlmannj/graphviz",
   "version": "0.2.1",
   "description": "A convenience method for using Graphviz.",
   "keywords": [
     "graphviz"
   ],
-  "homepage": "https://github.com/observablehq/graphviz",
-  "repository": "https://github.com/observablehq/graphviz",
+  "homepage": "https://github.com/kohlmannj/graphviz",
+  "repository": "https://github.com/kohlmannj/graphviz",
   "license": "ISC",
-  "main": "dist/graphviz.min.js",
+  "main": "index.js",
   "author": {
-    "name": "Observable, Inc."
+    "name": "Joseph Kohlmann"
   },
+  "contributors": [
+    {
+      "name": "Observable, Inc."
+    }
+  ],
   "scripts": {
     "prepublishOnly": "rollup -c"
   },
+  "peerDependencies": {
+    "viz.js": "2.1.2"
+  },
   "devDependencies": {
-    "rollup": "0.66",
-    "rollup-plugin-terser": "3",
-    "viz.js": "2"
+    "rollup": "1.11.0",
+    "rollup-plugin-terser": "4.0.4",
+    "viz.js": "2.1.2"
   }
 }
