@@ -1,4 +1,4 @@
-const { render, Module } = require('viz.js');
+const { render, Module } = require('viz.js/full.render.js');
 
 const defaults = { files: [], format: 'svg', engine: 'dot' };
 
